@@ -17,7 +17,7 @@ const SearchPage: React.FunctionComponent = () => {
             setLoading(true);
             setError(null);
             try {
-                const response = await fetch(`/api/search?q=${q}`);
+                const response = await fetch(`/api/query?q=${q}`);
                 if (!response.ok) {
                     throw new Error(`Error: ${response.status}`);
                 }
@@ -36,11 +36,11 @@ const SearchPage: React.FunctionComponent = () => {
     return (
         <div>
             {/* {
-                // TODO: Search Page how to do
+                // TODO: Search Page
             } */}
             {loading && <p>Loading...</p>}
             {error && <p>Error: {error}</p>}
-            {results.length > 0 ? (
+            {results && results.length > 0 ? (
                 <ul>
                     {results.map((result, index) => (
                         <li key={index}>

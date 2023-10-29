@@ -3,6 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 
     const googleApiKey = process.env.GOOGLE_API_KEY
+    const googleCx = process.env.GOOGLE_CX
 
     if (req.method === 'GET') {
 
